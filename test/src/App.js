@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import upload from './upload.svg';
 import Dropzone from 'react-dropzone';
 import './App.css'
 
@@ -24,9 +25,9 @@ class App extends React.Component{
         <Dropzone onDrop={acceptedFiles => this.acceptFile(acceptedFiles)}>
           {({getRootProps, getInputProps}) => (
             <section>
-              <div {...getRootProps()}>
+              <div className="Dropzone-field" {...getRootProps()}>
                 <input {...getInputProps()} type="file" accept="image/x-png,image/gif,image/jpeg" />
-                {this.state.file !== null? (<p>{this.state.file.path}</p>) : null}
+                {this.state.file !== null? (<p>{this.state.file.path}</p>) : <img src={upload} className="Upload-icon" alt="upload icon" />}
                 <p>Clique aqui ou arraste uma nova imagem</p>
                 
               </div>
